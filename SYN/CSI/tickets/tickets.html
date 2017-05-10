@@ -1,0 +1,66 @@
+<ol class="breadcrumb animated fadeIn fast">
+	<li><a href="#!/"><i class="fa fa-dashboard"></i> Dashboard </a></li>
+	<li class="active"> Tickets </li>
+</ol>
+
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box animated bounceInUp">
+            <div class="box-header">
+              <h3 class="box-title">Tickets Asignados <span class="badge bg-grey" style="font-size:0.8em">{{tickets.length}}</span></h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 200px;">
+                  <input type="text" ng-model="busqueda" name="table_search" class="form-control pull-right" placeholder="Buscar...">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tbody>
+                <tr>
+		       	<th>#</th>
+		       	<th>Resumen</th>
+		       	<th>Prioridad</th>
+		       	<th>Estado</th>
+		       	<th>Fecha Ap.</th>
+            <th>Asignatario</th>
+		       	<th>Usuario Final</th>
+                </tr>
+			<tr ng-repeat="ticket in tickets | filter:busqueda">
+
+		       	<td>{{ticket.ref_num}}</td>
+		       	<td>{{ticket.resumen}}</td>
+		       	<td class="text-center">{{ticket.prioridad}}</td>
+		       	<td>{{ticket.estado}}</td>
+            <td>{{ticket.Fecha_ap}}</td>
+            <td>{{ticket.asignatario}}</td>
+		       	<td>{{ticket.customer}}</td>
+
+	       	</tr>
+
+              </tbody></table>
+            </div>
+                <div class="box-footer clearfix">
+        <!-- <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a ng-click="moverA(1)">«</a></li>
+
+                <li ng-repeat="pag in tickets.paginas"
+                	ng-class="{
+                		'active':tickets.pag_actual === pag
+                	}">
+                <a ng-click="moverA(pag)">{{pag}}</a>
+                </li>
+                <li><a ng-click="moverA(tickets.total_paginas)">»</a></li>
+              </ul> -->
+    </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

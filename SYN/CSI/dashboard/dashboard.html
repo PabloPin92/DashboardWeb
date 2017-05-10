@@ -1,0 +1,54 @@
+<section class="content">
+
+	<div class="row">
+
+		
+<ol class="breadcrumb animated fadeIn fast">
+	<li><a href="#"><i class="fa fa-dashboard"></i> Nivel </a></li>
+	<li class="active"> Dashboard </li>
+</ol>
+
+<div class="" ng-controller="mainCtrl">
+
+<div class="box box-danger animated bounceInUp">
+    <div class="box-header with-border">
+    	<h3 class="box-title"> Soportes Online </h3> 
+		<span class="label label-success" style="font-size:1.0em" > {{online_users.length}} Online </span>
+		
+<div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 200px;">
+                  <input type="text"  ng-model="busqueda" name="table_search" class="form-control pull-right" placeholder="Buscar...">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+</div>
+
+</div>
+	<div class="box-body no-padding" >
+		<ul class="users-list clearfix ">
+    		<li ng-repeat="user_online in online_users | filter:busqueda" >
+				<img ng-src="../dist/img/fotos/{{user_online.Userid}}.jpg" 
+				width="77px" height="90px" class="img-circle" alt="User Image"/>
+                <!-- <img ng-src="dist/img/fotos/default.jpg" width="77px" height="98px" class="img-circle" alt="User Image"/> -->
+                <a class="users-list-name" href="" style="font-size:1.2em" >{{user_online.Nombre}}</a>
+                <span class="users-list-date" style="font-size:1.1em"> {{user_online.Dependencia}} </span> <a href=""><i class="fa fa-circle text-success"></i> Online</a>
+				  <!--<div class="box table-responsive">-->
+				  <div class="box " style="font-size:0.75em">
+        			<!--<div class="box-header text-center pull-center">-->
+          				<h1 class="box-title pull-center text-center" style="font-size:1.2em">Tickets Asignados: </h1>
+						  
+						  <div ng-show = "{{user_online.tickets_asignados}} >= 11" class="pull-center" ><span class="badge bg-red" style="font-size:2em">{{user_online.tickets_asignados}}</span></div>
+						  <div ng-show = "{{user_online.tickets_asignados}} <= 10" class="pull-center" ><span class="badge bg-green" style="font-size:2em">{{user_online.tickets_asignados}}</span></div>
+						  
+
+						  <br>
+      			</div>
+			</li>
+			
+    	</ul>
+	</div>
+	</div>
+
+</section>
